@@ -1,9 +1,10 @@
 package bit_manipulation;
 
-public class Decimal_Binary_Conversion {
+public class Bit_Manipulation {
     public static void main(String[] args) {
-        int res=convert2Decimal("1101");
-        System.out.println(res);
+//        int res=convert2Decimal("1101");
+//        System.out.println(res);
+        System.out.println(checkBit_Right_Shift(13,2));
     }
 
     public static String convert2Binary(int n){
@@ -28,5 +29,16 @@ public class Decimal_Binary_Conversion {
             p2=p2*2;
         }
         return num;
+    }
+
+    // check if the i th bit is set or not in a number.
+    public static boolean checkBit_Left_Shift(int n,int i){
+        if((n & (1<<i))!=0) return true;
+        else return false;
+    }
+
+    public static boolean checkBit_Right_Shift(int n,int i){
+        if((1&(n>>i))!=0) return true;
+        else return false;
     }
 }
