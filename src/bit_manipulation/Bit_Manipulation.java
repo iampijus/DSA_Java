@@ -41,4 +41,58 @@ public class Bit_Manipulation {
         if((1&(n>>i))!=0) return true;
         else return false;
     }
+
+    // set i th bit of a number
+    public static int set_bit(int number,int i){
+        int result=(number|(1<<i));
+        return result;
+    }
+
+    // clear i th bit of a number
+    public static int clear_bit(int number,int i){
+        int result=(number&~(1<<i));
+        return result;
+    }
+
+    // toggle i th bit of a number
+    public static int toggle_bit(int number,int i){
+        int result=number^(1<<i);
+        return result;
+    }
+
+    // remove the last set bit(rightmost)
+    public static int remove_lastSetBit(int number){
+        int result=number&(number-1);
+        return result;
+    }
+
+    // check if the number is a power of 2.
+    public static boolean check_powerOf2(int number){
+        if((number&(number-1))==0){
+            return true;
+        }
+        return false;
+    }
+
+    // count the number of set bits
+    public static int count_set_bits(int number){
+        int count=0;
+        while(number>1){
+            count+=number&1;
+            number=number>>1;
+        }
+        if(number==1) count++;
+        return count;
+
+    }
+    
+    // count the number of set bits - 2nd approach
+    public static int count_set_bits2(int N){
+        int count=0;
+        while(N!=0){
+            N=N&(N-1);
+            count++;
+        }
+        return count;
+    }
 }
